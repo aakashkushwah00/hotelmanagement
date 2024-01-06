@@ -1,0 +1,59 @@
+<div class="container-flouid">
+  <nav class="navbar navbar-expand-lg bg-warning navbar-fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <h3>HotelManagementSystem</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+          <li class="nav-item">
+            <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
+            <%= link_to 'Home', root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%# <a class="nav-link active" href="#">About</a> %>
+            <%= link_to 'About', about_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%# <a class="nav-link active" href="#">Room</a> %>
+            <%= link_to 'Room', room_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%# <a class="nav-link active" aria-current="page" href="#">Blog</a> %>
+            <%= link_to 'Blog', blog_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%# <a class="nav-link active" aria-current="page" href="#">Service</a> %>
+            <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+          </li>
+
+        </ul>
+        
+         <ul class="navbar-nav">
+
+          <% if current_user %>
+          <li class="nav-item"> <%= link_to 'Edit Account', edit_user_registration_path, class: 'nav-link btn' %> </li>
+          <li class="nav-item"> <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %> </li>
+          
+          <%# <a href="#.", class="my_popup_open">Book Now</a> %>
+          <%# <%= link_to 'Book Now', class: 'btn btn-primary nav-item' %>
+
+          <% else %>
+          <li class="nav-item"> <%= link_to 'Sign Up', new_user_registration_path, class: ' btn btn-outline-primary mr-2'  %> </li>
+          <li class="nav-item"> <%= link_to 'Login', new_user_session_path, class: ' btn btn-success mr-2'  %> </li>
+
+          <% end %>
+      
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</div>

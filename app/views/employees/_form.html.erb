@@ -1,0 +1,76 @@
+<section>
+  <div class='container mt-5 pt-5' >
+    <div class='row' >
+      <div class='col-12 col-sm-8 col-md-6 m-auto'>
+        <div class='card border-0 shadow' >
+          <div class='card-body'>
+            <%= form_with model: [ hotel, hotel.employees.build ] do |form| %>
+              <div>
+                <%= form.label :first_name %><br>
+                <%= form.text_field :first_name, class: "form-control my-3 py-2" %>
+                <% hotel.errors.full_messages_for(:first_name).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :last_name %><br>
+                <%= form.text_field :last_name, class: "form-control my-3 py-2"%><br>
+                <% hotel.errors.full_messages_for(:last_name).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :email %><br>
+                <%= form.text_field :email, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:email).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :contact_number %><br>
+                <%= form.text_area :contact_number, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:contact_number).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :address %><br>
+                <%= form.text_area :address, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:address).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :gender %><br>
+                <%= form.text_area :gender, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:gender).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :salary %><br>
+                <%= form.text_area :salary, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:salary).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.submit %>
+                <%= link_to 'Back', hotel_employees_path, class: 'btn btn-dark' %>
+
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

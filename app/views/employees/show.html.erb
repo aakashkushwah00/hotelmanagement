@@ -1,0 +1,51 @@
+<section>
+  <div class='container mt-5 pt-5' >
+    <div class='row' >
+      <div class='col-12 col-sm-8 col-md-6 m-auto'>
+        <div class='card border-0 shadow' >
+          <div class='card-body'>
+              <%# <h2>Hotel</h2> %>
+
+              <div >
+                  <h1>First_Name :<%= @employee.first_name %></h1>
+              </div>
+              <div >
+                  <h2>Last_Name : <span> <%= @employee.last_name %> </span> </h2>
+              </div>
+              <div >
+                  <h4>Email :<%= @employee.email %></h4>
+              </div>
+              <div >
+                  <h4>Address :<%= @employee.address %></h4>
+              </div>
+              <div >
+                  <h4>Contact_Number :<%= @employee.contact_number %></h4>
+              </div>
+              <div >
+                  <h4>Salary :<%= @employee.salary %></h4>
+              </div>
+              <div >
+                  <h4>Gender :<%= @employee.gender %></h4>
+              </div>
+              <br> <br>
+
+              <div >
+                <span> <%= link_to 'Back', hotel_employees_path, class: 'btn btn-secondary' %> </span>
+                
+                <span> <%= link_to 'Edit Room', edit_hotel_room_path(@employee), class: 'btn btn-success' %> </span>
+
+                <span> <%= link_to 'Delete Room',hotel_employee_path, data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: 'btn btn-danger'%> </span>
+
+                
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

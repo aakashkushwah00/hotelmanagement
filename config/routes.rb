@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  # get 'employees/index'
+  # get 'employees/show'
+  # get 'employees/new'
+  # get 'employees/edit'
+  # get 'rooms/index'
+  # get 'rooms/show'
+  # get 'rooms/new'
+  # get 'rooms/edit'
+  
+  get 'admin_dashboard/index'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -20,5 +31,9 @@ Rails.application.routes.draw do
   get '/blog', to: 'home#blog'
   get '/contact', to: 'home#contact'
 
+  resources :hotels do 
+    resources :rooms
+    resources :employees
+  end 
   
 end

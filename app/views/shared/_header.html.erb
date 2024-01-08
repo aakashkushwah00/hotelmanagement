@@ -7,9 +7,31 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
+          
+           
+           <% if current_user && current_user.is_admin? %>
+              <li class="nav-item">
+                <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
+                <%= link_to 'Home', admin_dashboard_index_path, class: 'nav-link' %>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Rooms</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Booking</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Employee</a>
+              </li>
+
+           <% else %>
+
           <li class="nav-item">
             <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
             <%= link_to 'Home', root_path, class: 'nav-link' %>
@@ -24,6 +46,7 @@
             <%= link_to 'Room', room_path, class: 'nav-link' %>
           </li>
 
+
           <li class="nav-item">
             <%# <a class="nav-link active" aria-current="page" href="#">Blog</a> %>
             <%= link_to 'Blog', blog_path, class: 'nav-link' %>
@@ -34,6 +57,9 @@
             <%= link_to 'Contact', contact_path, class: 'nav-link' %>
           </li>
 
+          <% end %>
+
+        
         </ul>
         
          <ul class="navbar-nav">
@@ -44,8 +70,8 @@
           
           <%# <a href="#.", class="my_popup_open">Book Now</a> %>
           <%# <%= link_to 'Book Now', class: 'btn btn-primary nav-item' %>
-
           <% else %>
+
           <li class="nav-item"> <%= link_to 'Sign Up', new_user_registration_path, class: ' btn btn-outline-primary mr-2'  %> </li>
           <li class="nav-item"> <%= link_to 'Login', new_user_session_path, class: ' btn btn-success mr-2'  %> </li>
 

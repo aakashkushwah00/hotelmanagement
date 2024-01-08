@@ -1,0 +1,76 @@
+<%# <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li>
+                <a href="#" class="logo">
+                    <img src="" alt="">
+                    <span class='nav-item'>Code Info</span>
+                </a>
+            </li>
+
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Home</span>
+            </a></li>
+
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Rooms</span>
+            </a></li>
+
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Booking</span>
+            </a></li>
+
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Employee</span>
+            </a></li>
+
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Help</span>
+            </a></li>
+
+        </ul>
+    </nav>
+
+</body>
+</html> %>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <h1 class="navbar-brand fs-1  fw-bold table table-rounded" href="#" style="text-align :center">Admin Dashboard</h1>
+</nav>
+
+
+<div class="container-fuild">
+    <div class="row">
+
+            <div class="col-4">
+                <div class="card mt-5" style="width: 18rem">
+                <%# <img src="..." class="card-img-top" alt="..."> %>
+                <div class="card-body">
+                    <h2 class="card-title justified-content-center">Hotel Listing</h2>
+                    <p class="card-text">Indulge in a memorable stay at our hotel, blending modern amenities with timeless charm.</p>
+                    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+                    <%= link_to 'Go somewhere', hotels_path, class:'btn btn-outline-success' %>
+                </div>
+            </div>
+
+        
+
+    </div>
+
+    
+</div>

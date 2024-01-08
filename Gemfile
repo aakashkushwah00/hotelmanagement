@@ -67,6 +67,7 @@ group :test do
 end
 
 
+
 # gem boostrap
 
 gem "bootstrap"
@@ -75,3 +76,14 @@ gem "sassc-rails"
 
 # device gem for user functionlity
 gem 'devise'
+
+# rolify
+gem 'rolify'
+
+# binding.pry for debeging
+
+# gem 'pry-rails'
+
+
+
+

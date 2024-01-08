@@ -1,0 +1,60 @@
+<section>
+  <div class='container mt-5 pt-5' >
+    <div class='row' >
+      <div class='col-12 col-sm-8 col-md-6 m-auto'>
+        <div class='card border-0 shadow' >
+          <div class='card-body'>
+            <%= form_with model: [ hotel, hotel.rooms.build ] do |form| %>
+              <div>
+                <%= form.label :room_type %><br>
+                <%= form.text_field :room_type, class: "form-control my-3 py-2" %>
+                <% hotel.errors.full_messages_for(:room_type).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :room_status %><br>
+                <%= form.text_field :room_status, class: "form-control my-3 py-2"%><br>
+                <% hotel.errors.full_messages_for(:room_status).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :floor_number %><br>
+                <%= form.text_field :floor_number, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:floor_number).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :price %><br>
+                <%= form.text_area :price, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:price).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :capacity %><br>
+                <%= form.text_area :capacity, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:capacity).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.submit %>
+                <%= link_to 'Back', hotel_rooms_path, class: 'btn btn-dark' %>
+
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

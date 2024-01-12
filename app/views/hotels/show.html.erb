@@ -7,26 +7,26 @@
               <%# <h2>Hotel</h2> %>
 
               <div >
-                  <h1>Hotel Name :<%= @hotel.name %></h1>
+                  <h1>Hotel Name : <%= @hotel.name %></h1>
               </div>
               <div >
-                  <h2>Hotel Address : <span> <%= @hotel.address %> </span> </h2>
+                  <h2> Address : <span> <%= @hotel.address %> </span> </h2>
               </div>
               <div >
-                  <h4>Hotel Description :<%= @hotel.description %></h4>
+                  <h4> Contact_number : <%= @hotel.contact_number %></h4>
               </div>
               <div >
-                  <h4>Hotel Contact_number :<%= @hotel.contact_number %></h4>
+                  <h4> Email : <%= @hotel.email %></h4>
               </div>
               <div >
-                  <h4>Hotel Email :<%= @hotel.email %></h4>
+                  <h4> Description : <%= @hotel.description %></h4>
               </div>
               <br> <br>
 
               <div >
               <span> <%= link_to 'Back', hotels_path, class: 'btn btn-secondary' %> </span>
 
-                <span> <%= link_to 'Edit Hotel', edit_hotel_path(@hotel), class: 'btn btn-secondary' %> </span>
+                <span> <%= link_to 'Edit Hotel', edit_hotel_path(@hotel), class: 'btn btn-success' %> </span>
 
                     <span> <%= link_to 'Delete Hotel', hotel_path(@hotel), data: {
                       turbo_method: :delete,

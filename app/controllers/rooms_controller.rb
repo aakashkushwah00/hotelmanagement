@@ -1,7 +1,8 @@
 class RoomsController < ApplicationController
 
   # before_action :set_hotel
-  
+  # before_action :set_room, only: [:edit, :update]
+
   def index
     @hotel = Hotel.find(params[:hotel_id])
     puts '========================'
@@ -13,6 +14,9 @@ class RoomsController < ApplicationController
  
 
   def show
+    puts "======================"
+    puts params
+    @hotel = Hotel.find(params[:hotel_id])
     @room = Room.find(params[:id])
   end
 
@@ -23,22 +27,36 @@ class RoomsController < ApplicationController
 
   def create 
     @hotel = Hotel.find(params[:hotel_id])
-    @room = @hotel.rooms.build(room_params)
-    if @room.save 
+    @room = @hotel.rooms.create(room_params)
       redirect_to hotel_rooms_path
-    else 
-      puts @room.errors.inspect
-    end
+
+    # if @room.save 
+    #   redirect_to hotel_rooms_path
+    # else 
+    #   puts @room.errors.inspect
+    # end
+
   end
 
   def edit
-    @room = Room.find(params[:id])
+    @hotel = Hotel.find(params[:hotel_id])
+    # @room = Room.find(params[:id])
+    @room = @hotel.rooms.find(params[:id])
     
   end
 
-  def update 
+  def update
+    @room = @hotel.rooms.find(params[:id])
 
+    if @room.update(room_params)
+      redirect_to hotel_rooms_path(@hotel), notice: 'Room was successfully updated.'
+    else
+      render :edit
+    end
   end
+
+  
+
 
   def destroy 
     @room = Room.find(params[:id])
@@ -49,8 +67,12 @@ class RoomsController < ApplicationController
 
   private 
 
-  # def set_hotel 
+  # def set_hotel
   #   @hotel = Hotel.find(params[:hotel_id])
+  # end
+
+  # def set_room
+  #   @room = @hotel.rooms.find(params[:id])
   # end
 
   def room_params

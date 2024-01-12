@@ -13,5 +13,12 @@ class User < ApplicationRecord
   # def is_customer?
   #   roles == "customer"
   # end 
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserRagistationMailer.welcome_email(self).deliver_now
+  end
 
 end

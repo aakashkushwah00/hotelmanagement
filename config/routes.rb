@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   get 'admin_dashboard/index'
 
+  get 'admin_dashboard/adminindex'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

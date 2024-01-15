@@ -43,11 +43,6 @@
 }
 /** end about section **/
 
-
-
-
-
-
 /** our_room section **/
 
 .our_room {
@@ -115,25 +110,16 @@
 
 /** blog section **/
 
-/* .blog {
-    background: url(../images/blog_bg.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding: 60px 0 30px 0;
-    margin-top: 60px;
-} */
 
 .blog .titlepage {
     text-align: center;
 }
 
 .blog .titlepage h2 {
-    /* color: #fff; */
     color: black;
 }
 
 .blog .titlepage p {
-    /* color: #fff; */
     color: black;
     font-size: 17px;
     margin-top: 20px;
@@ -385,11 +371,3 @@ line-height: 35px;
 .inner_page .blog {
     margin-top: 90px;
 }
-
-
-
-
-
-
-
-

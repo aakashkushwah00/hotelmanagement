@@ -1,76 +1,280 @@
-<%# <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Admin Dashboard</title>
     
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag "adminbashboard" %>
+
 </head>
+
 <body>
+    <div class="wrapper">
+        <aside id="sidebar" class="js-sidebar">
+            <!-- Content For Sidebar -->
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a href="#">HotelManagement</a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Admin Elements
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                            Pages
+                        </a>
+                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <%# <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Page 1</a>
+                            </li> %>
+                            <%= link_to 'hotels', hotels_path, class: "sidebar-link collapsed" %>
+
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Page 2</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <%# <li class="sidebar-item"> %>
+                        <%# <i class="fa-solid fa-file-lines pe-2"></i> %>
+                        <%# <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" %>
+                            <%# aria-expanded="false"> %>
+                        <%# <i class="fa-solid fa-hotel pe-2 "></i> %>
+                        <%# </a> %>
+                    <%# </li> %>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Posts
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Post 1</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Post 2</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Post 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                            Auth
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <%# <a href="#" class="sidebar-link">Login</a> %>
+                                <%= link_to 'Change Password', edit_user_registration_path, class: 'sidebar-link' %>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="sidebar-header">
+                        Multi Level Menu
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-share-nodes pe-2"></i>
+                            Multi Dropdown
+                        </a>
+                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link collapsed" data-bs-target="#level-1"
+                                    data-bs-toggle="collapse" aria-expanded="false">Level 1</a>
+                                <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
+                                    <li class="sidebar-item">
+                                        <a href="#" class="sidebar-link">Level 1.1</a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="#" class="sidebar-link">Level 1.2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <button class="btn" id="sidebar-toggle" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <%# <img src="image/profile.jpg" class="avatar img-fluid rounded" alt=""> %>
+                                <%= image_tag "profile", class: 'avatar img-fluid rounded' %>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <%# <a href="#" class="dropdown-item">Profile</a> %>
+
+                                <%= link_to 'Profile', edit_user_registration_path, class: 'dropdown-item' %>
+
+
+                               <%# <a href="#" class="dropdown-item">Logout</a> %>
+                                <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+                                
+                           </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content px-3 py-2">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <h4>Admin Dashboard</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <div class="card-body p-0 d-flex flex-fill">
+                                    <div class="row g-0 w-100">
+                                        <div class="col-6">
+                                            <div class="p-3 m-1">
+                                                <h4>Welcome Back, Admin</h4>
+                                                <p class="mb-0">Admin Dashboard, HotelManagement</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 align-self-end text-end">
+                                            
+                                            <%= image_tag 'customer-support', class: 'img-fluid illustration-img' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            <h4 class="mb-2">
+                                                $ 78.00
+                                            </h4>
+                                            <p class="mb-2">
+                                                Total Earnings
+                                            </p>
+                                            <div class="mb-0">
+                                                <span class="badge text-success me-2">
+                                                    +9.0%
+                                                </span>
+                                                <span class="text-muted">
+                                                    Since Last Month
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Table Element -->
+                    <div class="card border-0">
+                        <div class="card-header">
+                            <h5 class="card-title">
+                                HotelManagement Table
+                            </h5>
+                            <h6 class="card-subtitle text-muted">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ducimus,
+                                necessitatibus reprehenderit itaque!
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <a href="#" class="theme-toggle">
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+            </a>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-start">
+                            <p class="mb-0">
+                                <%# <a href="#" class="text-muted">
+                                    <strong>HotelManagement</strong>
+                                </a> %>
+                                <%= link_to 'HotelManagement', admin_dashboard_index_path %>
+                            </p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <%# <a href="#" class="text-muted">Contact</a> %>
+                                    <%= link_to 'Hotels', hotels_path %>
+                                </li>
+                                <%# <li class="list-inline-item">
+                                    <a href="#" class="text-muted">About Us</a>
+                                </li> %>
+                                <%# <li class="list-inline-item">
+                                    <a href="#" class="text-muted">Terms</a>
+                                </li> %>
+                                <li class="list-inline-item">
+                                    <a href="#" class="text-muted">Booking</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <%# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script> %>
+    <%# <script src="js/script.js"></script> %>
     
-    <nav>
-        <ul>
-            <li>
-                <a href="#" class="logo">
-                    <img src="" alt="">
-                    <span class='nav-item'>Code Info</span>
-                </a>
-            </li>
-
-            <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Home</span>
-            </a></li>
-
-            <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Rooms</span>
-            </a></li>
-
-            <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Booking</span>
-            </a></li>
-
-            <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Employee</span>
-            </a></li>
-
-            <li><a href="#">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Help</span>
-            </a></li>
-
-        </ul>
-    </nav>
+    <%= javascript_include_tag "admin" %>
+   
 
 </body>
-</html> %>
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <h1 class="navbar-brand fs-1  fw-bold table table-rounded" href="#" style="text-align :center">Admin Dashboard</h1>
-</nav>
-
-
-<div class="container-fuild">
-    <div class="row">
-
-            <div class="col-4">
-                <div class="card mt-5" style="width: 18rem">
-                <%# <img src="..." class="card-img-top" alt="..."> %>
-                <div class="card-body">
-                    <h2 class="card-title justified-content-center">Hotel Listing</h2>
-                    <p class="card-text">Indulge in a memorable stay at our hotel, blending modern amenities with timeless charm.</p>
-                    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-                    <%= link_to 'Go somewhere', hotels_path, class:'btn btn-outline-success' %>
-                </div>
-            </div>
-
-        
-
-    </div>
-
-    
-</div>
+</html>

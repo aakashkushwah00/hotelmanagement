@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def room
+    
   end
 
   def blog 
@@ -13,4 +14,6 @@ class HomeController < ApplicationController
 
   def contact 
   end
+
+ 
 end

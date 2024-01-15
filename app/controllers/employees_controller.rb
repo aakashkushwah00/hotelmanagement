@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
+  
   def index
     @hotel = Hotel.find(params[:hotel_id])
     @employees = @hotel.employees
   end
-  
 
   def show
     @employee = Employee.find(params[:id])
@@ -24,7 +24,6 @@ class EmployeesController < ApplicationController
     end
   end
 
-
   def edit
   end
 
@@ -34,7 +33,6 @@ class EmployeesController < ApplicationController
 
     redirect_to hotel_employees_path
   end 
-  
 
   private 
 

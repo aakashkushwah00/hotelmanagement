@@ -3,13 +3,26 @@
       <%= flash[:notice]%>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+
 <% end %>
 
 
 <% if flash[:alert] %>
     <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert" >
       <%= flash[:alert]%>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
     </div>
+
+    <script type="text/javascript">
+        setTimeout(function(){
+        $('.alert').fadeOut();
+        }, 1000);
+      </script>
+
 <% end %>
+
+
+
+
+
 

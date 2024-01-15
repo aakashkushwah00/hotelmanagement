@@ -18,6 +18,19 @@
                 <%= link_to 'Home', admin_dashboard_index_path, class: 'nav-link' %>
               </li>
 
+              <li>
+                <%# <a href="#", class="nav-link">Rooms</a> %>
+                <%= link_to 'Rooms', allrooms_path, class: 'nav-link' %>
+              </li>
+
+              <li>
+                <a href="#", class="nav-link">Employees</a>
+              </li>
+
+              <li>
+                <a href="#", class="nav-link">Booking</a>
+              </li>
+
 
            <% else %>
 
@@ -44,6 +57,10 @@
           <li class="nav-item">
             <%# <a class="nav-link active" aria-current="page" href="#">Service</a> %>
             <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+          </li>
+
+          <li>
+                <a href="#", class="nav-link">Booking</a>
           </li>
 
           <% end %>

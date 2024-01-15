@@ -3,13 +3,15 @@ class RoomsController < ApplicationController
   # before_action :set_hotel
   # before_action :set_room, only: [:edit, :update]
 
+  def allrooms 
+    @rooms = Room.all
+  end
+
   def index
     @hotel = Hotel.find(params[:hotel_id])
     puts '========================'
     puts @hotel
     @rooms = @hotel.rooms
-
-      # @rooms = Room.all
   end
  
 
@@ -21,7 +23,6 @@ class RoomsController < ApplicationController
   end
 
   def new
-    # @room = Room.new
     @hotel = Hotel.find(params[:hotel_id])
   end
 
@@ -40,7 +41,6 @@ class RoomsController < ApplicationController
 
   def edit
     @hotel = Hotel.find(params[:hotel_id])
-    # @room = Room.find(params[:id])
     @room = @hotel.rooms.find(params[:id])
     
   end

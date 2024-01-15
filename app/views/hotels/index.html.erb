@@ -7,6 +7,7 @@
           <table class="table table-bordered table-hover table-striped">
             <thead>
               <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact_Number</th>
@@ -20,6 +21,7 @@
             <tbody>
               <% @hotels.each do |hotel| %>
                 <tr>
+                  <td><%= hotel.id %></td>
                   <td><%= hotel.name %></td>
                   <td><%= hotel.email %></td>
                   <td><%= hotel.contact_number %></td>

@@ -46,6 +46,14 @@
               </div>
 
               <div>
+                <%= form.label :hotel_image %><br>
+                <%= form.file_field :hotel_image, class: "form-control my-3 py-2" %><br>
+                <% hotel.errors.full_messages_for(:description).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
                 <%= form.submit %>
                 <%= link_to 'Back', hotels_path , class: 'btn btn-dark' %>
 

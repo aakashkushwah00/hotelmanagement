@@ -9,15 +9,11 @@ class RoomsController < ApplicationController
 
   def index
     @hotel = Hotel.find(params[:hotel_id])
-    puts '========================'
-    puts @hotel
     @rooms = @hotel.rooms
   end
  
 
   def show
-    puts "======================"
-    puts params
     @hotel = Hotel.find(params[:hotel_id])
     @room = Room.find(params[:id])
   end
@@ -30,15 +26,11 @@ class RoomsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @room = @hotel.rooms.create(room_params)
       redirect_to hotel_rooms_path
-
   end
 
   def edit
     @hotel = Hotel.find(params[:hotel_id])
-    # @room = @hotel.rooms.find(params[:id])
-
     @room = Room.find_by(id: params[:id], hotel_id: params[:hotel_id])
-    
   end
 
   def update

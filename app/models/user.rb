@@ -6,13 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
         def is_admin? 
-          # roles == "Admin"
           has_role? :admin
         end
          
-  # def is_customer?
-  #   roles == "customer"
-  # end 
+ 
   after_create :send_welcome_email
 
   private

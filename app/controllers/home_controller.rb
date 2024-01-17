@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def room
-    
+    @rooms = Room.all
   end
 
   def blog 

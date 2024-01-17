@@ -4,7 +4,7 @@
       <div class='col-12 col-sm-8 col-md-6 m-auto'>
         <div class='card border-0 shadow' >
           <div class='card-body'>
-            <%= form_with model: @room || [ @hotel, @hotel.rooms.build ] do |form| %>
+            <%= form_with model: [ @hotel, @room ] do |form| %>
               <div>
                 <%= form.label :room_type %><br>
                 <%= form.text_field :room_type, class: "form-control my-3 py-2" %>
@@ -40,6 +40,14 @@
               <div>
                 <%= form.label :capacity %><br>
                 <%= form.text_area :capacity, class: "form-control my-3 py-2" %><br>
+                <% @hotel.errors.full_messages_for(:capacity).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+
+              <div>
+                <%= form.label :room_image %><br>
+                <%= form.file_field :room_image, class: "form-control my-3 py-2" %><br>
                 <% @hotel.errors.full_messages_for(:capacity).each do |message| %>
                   <div><%= message %></div>
                 <% end %>

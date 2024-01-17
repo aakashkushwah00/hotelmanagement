@@ -38,14 +38,14 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @hotel.destroy 
 
-    redirect_to hotels_path
+    redirect_to hotels_path, status: :see_other
   end
 
 
   private 
 
   def hotel_params
-    params.require(:hotel).permit(:name, :email, :contact_number, :description, :address )
+    params.require(:hotel).permit(:name, :email, :contact_number, :description, :address, :hotel_image )
   end
   
 end

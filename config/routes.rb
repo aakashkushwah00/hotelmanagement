@@ -32,10 +32,23 @@ Rails.application.routes.draw do
   get '/room', to: 'home#room'
   get '/blog', to: 'home#blog'
   get '/contact', to: 'home#contact'
+  get '/allhotels', to: 'home#allhotels'
+  get 'home/hotelrooms/:hotel_id', to: 'home#hotelrooms', as: 'test'
+
+
+
+  # get 'rooms/', to: 'rooms#allroom'
+
 
   resources :hotels do 
     resources :rooms
     resources :employees
   end 
+
+  resources :home
   
+  get 'rooms/', to: 'rooms#allroom'
+  get 'employees/', to: 'employees#allemployee'
+
+
 end

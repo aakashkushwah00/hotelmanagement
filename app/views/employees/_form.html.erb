@@ -4,7 +4,7 @@
       <div class='col-12 col-sm-8 col-md-6 m-auto'>
         <div class='card border-0 shadow' >
           <div class='card-body'>
-            <%= form_with model: [ hotel, hotel.employees.build ] do |form| %>
+            <%= form_with model: [ @hotel, @employee ] do |form| %>
               <div>
                 <%= form.label :first_name %><br>
                 <%= form.text_field :first_name, class: "form-control my-3 py-2" %>

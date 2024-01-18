@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+
   def index
     @hotels = Hotel.all
   end
@@ -20,7 +21,6 @@ class HotelsController < ApplicationController
     end
   end
   
-
   def edit
     @hotel = Hotel.find(params[:id])
   end

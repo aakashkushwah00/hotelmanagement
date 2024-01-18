@@ -25,9 +25,12 @@
                 <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quo quaerat aut excepturi, unde eligendi laborum delectus maiores.</h6>
             </div>
             <div class="col-md-3">
-            <h3><del>Rs 1010 </del></h3> <br>
-                <h1 style="background: black; color: white; margin-right: 77px; ", class="rounded"><%= @room.price %>
-                <button class="btn btn-primary", style="width: 100px; height: 56px; font-weight: bold">Book</button></h1>
+            <h3><del> Rs<%= @room.price*1.5 %> </del></h3> <br>
+                <h1 style="background: black; color: white; margin-right: 83px; ", class="rounded"><%= @room.price %>
+                <%# <button class="btn btn-primary", style="width: 100px; height: 56px; font-weight: bold">Book</button> %>
+                <%= link_to 'Book', new_booking_path(id: @room), class: 'btn btn-primary', style: "width: 100px; height: 56px; font-weight: bold" %>
+                
+                </h1>
             </div>
         </div>
     </div>

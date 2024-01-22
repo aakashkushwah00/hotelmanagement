@@ -36,10 +36,10 @@
           </li>
 
 
-          <li class="nav-item">
+          <%# <li class="nav-item"> %>
             <%# <a class="nav-link active" aria-current="page" href="#">Blog</a> %>
-            <%= link_to 'Blog', blog_path, class: 'nav-link' %>
-          </li>
+            <%# <%= link_to 'Blog', blog_path, class: 'nav-link' %> 
+          <%# </li> %>
 
           <li class="nav-item">
             <%# <a class="nav-link active" aria-current="page" href="#">Service</a> %>
@@ -51,6 +51,9 @@
             <%= link_to 'Hotels', allhotels_path, class: 'nav-link' %>
           </li>
 
+          <li class="nav-item">
+            <%= link_to 'Bookings', bookings_index_path, class: 'nav-link' %>
+          </li>
           
 
           <% end %>

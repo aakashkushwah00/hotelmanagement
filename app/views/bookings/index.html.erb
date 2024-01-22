@@ -3,7 +3,7 @@
     <%# <div class="col-md-8 col-xs-12"> %>
       <div class="table-responsive">
 
-        <h1>Listing Hotels</h1>
+        <h1>Booking Details</h1>
           <table class="table table-bordered table-hover table-dark table-striped">
             <thead>
               <tr>
@@ -27,18 +27,16 @@
                   <td><%= book.contact_number %></td>
                   <td><%= book.check_in_date %></td>
                   <td><%= book.check_out_date %></td>
+                  <td><%= link_to "pdf", booking_path(book, format: :pdf)%></td>
                   <td><%= link_to "Show", booking_path(book)%></td>
-                  <td><%= link_to "Booking Edit", edit_booking_path(book) %></td>
-                  <td><%= button_to "Cancle Booking", booking_path(book), class: 'btn btn-danger', data: {
-                        turbo_method: :delete,
-                        turbo_confirm: "Are you sure?"
-                      }%>
+                  <td><%= button_to "Cancle Booking", booking_path(book), method: :delete %>
                   </td>
 
                 </tr>
               <% end %>
             </tbody>
           </table>
+        <%= link_to "New hotel", new_hotel_path, class: 'btn btn-outline-primary'  %>
 
       </div>
     </div>

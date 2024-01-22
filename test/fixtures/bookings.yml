@@ -1,8 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  chech_in_date: 2024-01-18
-  check_out_date: 2024-01-18
+  check_in_date: 2024-01-22
+  check_out_date: 2024-01-22
   name: MyString
   email: MyString
   contact_number: MyString
@@ -11,8 +11,8 @@ one:
   room: one
 
 two:
-  chech_in_date: 2024-01-18
-  check_out_date: 2024-01-18
+  check_in_date: 2024-01-22
+  check_out_date: 2024-01-22
   name: MyString
   email: MyString
   contact_number: MyString

@@ -1,15 +1,21 @@
 class BookingsController < ApplicationController
-  
   before_action :authenticate_user!
 
   def index
     @bookings = current_user.bookings
   end
 
-  def show
+  def show 
     @booking = Booking.find(params[:id])
+   
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Booking id: #{@booking.id}", template: "bookings/bookingpdf", formats: [:html]  # Excluding ".pdf" extension.
+      end
+    end
   end
-
+  
   def new
     @booking = Booking.new
     @room = Room.find(params[:id])
@@ -21,33 +27,37 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @room = Room.find(params[:booking][:room_id])
 
+    puts "======================="
+    puts @room
+
     if room_available?(@booking.room, @booking.check_in_date, @booking.check_out_date) && @booking.save
+
+      BookingMailer.booking_success(current_user, @booking).deliver_now
+
       flash[:notice] = 'Room booked successfully!'
-      redirect_to bookings_path
+      redirect_to bookings_index_path
     else
       flash[:alert] = 'Room not available for the selected dates.'
       render :new, status: 422
     end
   end
 
-  def edit
-  end
-
   def destroy 
     @booking = Booking.find(params[:id])
     @booking.destroy 
+    
+    BookingMailer.booking_cancel(current_user, @booking).deliver_now
 
     redirect_to root_path, notice: 'booking cancel successfully!'
   end
 
-  private 
+  private
 
   def booking_params
-    params.require(:booking).permit(:room_id, :check_in_date, :check_out_date, :user_id, :name, :email, :contact_number)
+    params.require(:booking).permit(:room_id, :check_in_date, :check_out_date, :user_id, :name, :email, :contact_number, :address)
   end
 
   def room_available?(room, check_in_date, check_out_date)
     !Booking.exists?(room: room, check_out_date: (check_in_date..check_out_date)) && !Booking.exists?(room: room, check_in_date: (check_in_date..check_out_date))
   end
-  
 end

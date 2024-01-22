@@ -36,7 +36,9 @@
 
               <%= f.hidden_field :user_id, value: current_user.id %> <!-- Assuming you have a current_user method for authentication -->
               <%= f.hidden_field :room_id, value: @room.id %>
+              <br>
 
+              <%= link_to 'Back', home_path(@room), class: 'btn btn-warning' %> 
               <%= f.submit 'Book Now', class: 'btn btn-success' %>
             <% end %>
 

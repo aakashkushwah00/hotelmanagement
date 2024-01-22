@@ -5,20 +5,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    has_many :bookings
+  has_many :bookings 
 
-        def is_admin? 
-          has_role? :admin
-        end
-         
- 
   after_create :send_welcome_email
-
+    
+  def is_admin? 
+    has_role? :admin
+  end
+         
   private
 
   def send_welcome_email
     UserRagistationMailer.welcome_email(self).deliver_now
   end
-
-
 end

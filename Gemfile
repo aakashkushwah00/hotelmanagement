@@ -88,6 +88,7 @@ gem 'rolify'
 # letter_opener gem use
 
 gem 'wicked_pdf'
+
 gem 'wkhtmltopdf-binary'
 
 

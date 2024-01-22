@@ -1,19 +1,15 @@
 <div  class="our_room" id="rooms">
     <div class="container">
-
-        
-    <div class="row">
-        <div class="col-md-12">
-            <div class="titlepage">
-                <h2>Our Room</h2>
-                <p>Lorem Ipsum available, but the majority have suffered </p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Our Room</h2>
+                    <p>Lorem Ipsum available, but the majority have suffered </p>
+                </div>
             </div>
         </div>
-    </div>
 
         <div class="row">
-           
-            
             <div class="col-md-5">
                 <%= image_tag @room.room_image, class: 'img-fuild rounded' %>
             </div>
@@ -27,7 +23,6 @@
             <div class="col-md-3">
             <h3><del>Rs 1010 </del></h3> <br>
                 <h1 style="background: black; color: white; margin-right: 77px; ", class="rounded"><%= @room.price %>
-                <%# <button class="btn btn-primary", style="width: 100px; height: 56px; font-weight: bold">Book</button> %>
                 <%= link_to 'Book', new_booking_path(id: @room), class: 'btn btn-primary', style: 'width:100px;height: 56px; font-weight: bold'  %>
                 </h1>
             </div>

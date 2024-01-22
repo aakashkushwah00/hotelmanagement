@@ -22,13 +22,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    
     @booking = current_user.bookings.build(booking_params)
     @booking = Booking.new(booking_params)
     @room = Room.find(params[:booking][:room_id])
-
-    puts "======================="
-    puts @room
 
     if room_available?(@booking.room, @booking.check_in_date, @booking.check_out_date) && @booking.save
 

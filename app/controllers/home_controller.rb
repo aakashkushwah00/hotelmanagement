@@ -13,10 +13,6 @@ class HomeController < ApplicationController
     @hotels = Hotel.all
   end
 
-  # def room
-  #   @rooms = Room.all
-  # end
-
   def hotelrooms 
     @hotel = Hotel.find(params[:hotel_id])
     @rooms = @hotel.rooms

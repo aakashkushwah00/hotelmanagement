@@ -27,17 +27,12 @@
                   <td><%= link_to 'show', hotel_path(hotel) %></td>
                   <td><%= link_to 'Add Room', hotel_rooms_path(hotel) %></td>
                   <td><%= link_to 'Add Employee', hotel_employees_path(hotel) %></td>
-
-
                 </tr>
               <% end %>
             </tbody>
           </table>
-
                 <%= link_to 'Back', admin_dashboard_index_path, class: 'btn btn-outline-dark' %>
-
                 <%= link_to "Add New Hotel",new_hotel_path, class: 'btn btn-outline-primary' %>
-
       </div>
     </div>
   </div>

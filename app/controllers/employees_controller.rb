@@ -29,13 +29,10 @@ class EmployeesController < ApplicationController
     end
   end
 
-
   def edit
     @hotel = Hotel.find(params[:hotel_id])
     @employee = Employee.find_by(id: params[:id], hotel_id: params[:hotel_id])
   end
-
-
 
   def update
     @hotel = Hotel.find(params[:hotel_id])

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  # get 'bookings/show'
-  get 'bookings/new'
   # get 'employees/index'
   # get 'employees/show'
   # get 'employees/new'
@@ -49,8 +46,7 @@ Rails.application.routes.draw do
   end 
 
   resources :home
-
-  resources :bookings, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :bookings
   
   get 'rooms/', to: 'rooms#allroom'
   get 'employees/', to: 'employees#allemployee'

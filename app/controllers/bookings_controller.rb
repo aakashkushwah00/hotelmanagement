@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  
+
+  def index
+    @bookings = current_user.bookings
+  end
+
   def show 
     @booking = Booking.find(params[:id])
    
@@ -10,13 +14,11 @@ class BookingsController < ApplicationController
         render pdf: "Booking id: #{@booking.id}", template: "bookings/bookingpdf", formats: [:html]  # Excluding ".pdf" extension.
       end
     end
-    
   end
-
+  
   def new
     @booking = Booking.new
     @room = Room.find(params[:id])
-
   end
 
   def create
@@ -38,14 +40,8 @@ class BookingsController < ApplicationController
       flash[:alert] = 'Room not available for the selected dates.'
       render :new, status: 422
     end
-
-    
   end
 
-  def index 
-    @bookings = current_user.bookings
-  end
-  
   def destroy 
     @booking = Booking.find(params[:id])
     @booking.destroy 

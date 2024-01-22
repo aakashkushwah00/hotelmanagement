@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
     @rooms = @hotel.rooms
   end
  
-
   def show
     @hotel = Hotel.find(params[:hotel_id])
     @room = Room.find(params[:id])
@@ -43,9 +42,6 @@ class RoomsController < ApplicationController
       render :edit
     end
   end
-
-  
-
 
   def destroy 
     @room = Room.find(params[:id])

@@ -31,6 +31,7 @@ class EmployeesController < ApplicationController
 
   def edit
     @hotel = Hotel.find(params[:hotel_id])
+    puts "================="
     @employee = Employee.find_by(id: params[:id], hotel_id: params[:hotel_id])
   end
 

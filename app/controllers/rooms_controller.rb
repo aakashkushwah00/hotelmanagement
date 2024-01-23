@@ -19,6 +19,7 @@ class RoomsController < ApplicationController
 
   def new
     @hotel = Hotel.find(params[:hotel_id])
+    @room = @hotel.rooms.build
   end
 
   def create 
@@ -30,6 +31,7 @@ class RoomsController < ApplicationController
   def edit
     @hotel = Hotel.find(params[:hotel_id])
     @room = Room.find_by(id: params[:id], hotel_id: params[:hotel_id])
+    
   end
 
   def update

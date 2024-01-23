@@ -35,10 +35,7 @@ Rails.application.routes.draw do
   get '/allhotels', to: 'home#allhotels'
   get 'home/hotelrooms/:hotel_id', to: 'home#hotelrooms', as: 'test'
 
-
-
   # get 'rooms/', to: 'rooms#allroom'
-
 
   resources :hotels do 
     resources :rooms
@@ -50,6 +47,5 @@ Rails.application.routes.draw do
   
   get 'rooms/', to: 'rooms#allroom'
   get 'employees/', to: 'employees#allemployee'
-
 
 end

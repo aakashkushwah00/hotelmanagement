@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
       BookingMailer.booking_success(current_user, @booking).deliver_now
 
       flash[:notice] = 'Room booked successfully!'
-      redirect_to bookings_index_path
+      redirect_to bookings_path
     else
       flash[:alert] = 'Room not available for the selected dates.'
       render :new, status: 422

@@ -1,31 +1,31 @@
 <div  class="our_room" id="rooms">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>ALL Employee</h2>
-                     <p>Lorem Ipsum available, but the majority have suffered </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-            
-               <% @employees.each do |employee| %>
-               <div class="col-md-4 col-sm-6 d-flex ">
-                  <div id="serv_hover"  class="room">
-
-                     <div class="room_img">
-                     </div>
-                     <div class="bed_room">
-                        <h3>FirstName : <%= employee.first_name %> </h3>
-                        <h5>LastName : <%= employee.last_name %></h5>
-                        <h5>Email : <%= employee.email %></h5>
-                        <h5>Contact : <%= employee.contact_number %></h5>
-                     </div>
-
-                  </div>
-               </div>
-                  <% end %>
-            </div>
-         </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="titlepage">
+          <h2>ALL Employee</h2>
+          <p>Lorem Ipsum available, but the majority have suffered </p>
+        </div>
       </div>
+    </div>
+    <div class="row">
+    
+      <% @employees.each do |employee| %>
+      <div class="col-md-4 col-sm-6 d-flex ">
+        <div id="serv_hover"  class="room">
+
+          <div class="room_img">
+          </div>
+          <div class="bed_room">
+            <h3>FirstName : <%= employee.first_name %> </h3>
+            <h5>LastName : <%= employee.last_name %></h5>
+            <h5>Email : <%= employee.email %></h5>
+            <h5>Contact : <%= employee.contact_number %></h5>
+          </div>
+
+        </div>
+      </div>
+          <% end %>
+    </div>
+  </div>
+</div>

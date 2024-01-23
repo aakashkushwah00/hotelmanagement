@@ -39,14 +39,13 @@ class EmployeesController < ApplicationController
     @employee = @hotel.employees.find(params[:id])
 
     if @employee.update(employee_params) 
-      redirect_to hotel_employees_path(@hotel), notice: 'Employee was successfully updated.'
+      redirect_to hotel_employees_path(@employee), notice: 'Employee was successfully updated.'
     else
       render :edit, status: 422
     end
   end
-  
-  def destroy 
 
+  def destroy 
     @employee = Employee.find(params[:id])
     @employee.destroy 
 

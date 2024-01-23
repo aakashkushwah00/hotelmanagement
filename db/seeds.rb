@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# user = User.create!(email: 'aakashkushwah9012@gmail.com', password: '1234567', password_confirmation: '1234567')
+user = User.create!(email: 'aakashkushwah9012@gmail.com', password: '1234567', password_confirmation: '1234567')
 
 user.add_role :admin
 

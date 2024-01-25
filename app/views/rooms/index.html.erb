@@ -7,10 +7,10 @@
             <thead>
               <tr>
                 <th>Room_Type</th>
-                <th>Room_Status</th>
                 <th>Floor_Number</th>
                 <th>Price</th>
                 <th>Capacity</th>
+                <th>Description</th>
 
                 <th colspan="3">Actions</th>
               </tr>
@@ -20,10 +20,10 @@
               <% @rooms.each do |room| %>
                 <tr>
                   <td><%= room.room_type %></td>
-                  <td><%= room.room_status %></td>
                   <td><%= room.floor_number %></td>
                   <td><%= room.price %></td>
                   <td><%= room.capacity %></td>
+                  <td><%= room.description %></td>
 
                   <td> <%= link_to 'Show',hotel_room_path(@hotel, room.id), class: 'btn btn-outline-primary' %> </td>
 

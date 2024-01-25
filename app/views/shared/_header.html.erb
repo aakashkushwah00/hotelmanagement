@@ -10,58 +10,52 @@
       
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-           
-           <% if current_user && current_user.is_admin? %>
-              <li class="nav-item">
-                <%= link_to 'Home', admin_dashboard_index_path, class: 'nav-link' %>
-              </li>
 
-           <% else %>
+          <% if current_user && current_user.is_admin? %>
+            <li class="nav-item">
+              <%= link_to 'Home', admin_dashboard_index_path, class: 'nav-link' %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Home', root_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'About', about_path, class: 'nav-link' %>
-          </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Room', rooms_path, class: 'nav-link' %>
-          </li>
+            <li class="nav-item">
+              <%= link_to 'About', about_path, class: 'nav-link' %>
+            </li>
 
-          <%# <li class="nav-item">
-            <%= link_to 'Blog', blog_path, class: 'nav-link' %>
-          <%# </li> %> 
+            <li class="nav-item">
+              <%= link_to 'Room', rooms_path, class: 'nav-link' %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Contact', contact_path, class: 'nav-link' %>
-          </li>
+            <li class="nav-item" >
+              <%= link_to 'Blog', blog_path, class: 'nav-link' %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Hotels', allhotels_path, class: 'nav-link' %>
-          </li>
+            <li class="nav-item">
+              <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+            </li>
 
-          <li class="nav-item">
-            <%= link_to 'Bookings', bookings_path, class: 'nav-link' %>
-          </li>
+            <li class="nav-item">
+              <%= link_to 'Hotels', allhotels_path, class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Bookings', bookings_path, class: 'nav-link' %>
+            </li>
           <% end %>
-
         </ul>
         
-         <ul class="navbar-nav">
-
+        <ul class="navbar-nav">
           <% if current_user %>
-          <li class="nav-item"> <%= link_to 'Edit Account', edit_user_registration_path, class: 'nav-link btn' %> </li>
-          <li class="nav-item"> <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %> </li>
+            <li class="nav-item"> <%= link_to 'Edit Account', edit_user_registration_path, class: 'nav-link btn' %> </li>
+            <li class="nav-item"> <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %> </li>
           
           <% else %>
-
-          <li class="nav-item"> <%= link_to 'Sign Up', new_user_registration_path, class: ' btn btn-outline-primary mr-2'  %> </li>
-          <li class="nav-item"> <%= link_to 'Login', new_user_session_path, class: ' btn btn-success mr-2'  %> </li>
-
+            <li class="nav-item"> <%= link_to 'Sign Up', new_user_registration_path, class: ' btn btn-outline-primary mr-2'  %> </li>
+            <li class="nav-item"> <%= link_to 'Login', new_user_session_path, class: ' btn btn-success mr-2'  %> </li>
           <% end %>
-      
         </ul>
 
       </div>

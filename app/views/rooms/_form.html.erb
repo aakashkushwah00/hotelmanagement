@@ -14,14 +14,6 @@
               </div>
 
               <div>
-                <%= form.label :room_status %><br>
-                <%= form.text_field :room_status, class: "form-control my-3 py-2"%><br>
-                <% @hotel.errors.full_messages_for(:room_status).each do |message| %>
-                  <div><%= message %></div>
-                <% end %>
-              </div>
-
-              <div>
                 <%= form.label :floor_number %><br>
                 <%= form.text_field :floor_number, class: "form-control my-3 py-2" %><br>
                 <% @hotel.errors.full_messages_for(:floor_number).each do |message| %>
@@ -46,12 +38,21 @@
               </div>
 
               <div>
+                <%= form.label :description %><br>
+                <%= form.text_field :description, class: "form-control my-3 py-2"%><br>
+                <% @hotel.errors.full_messages_for(:description).each do |message| %>
+                  <div><%= message %></div>
+                <% end %>
+              </div>
+              
+              <div>
                 <%= form.label :room_image %><br>
                 <%= form.file_field :room_image, class: "form-control my-3 py-2" %><br>
                 <% @hotel.errors.full_messages_for(:capacity).each do |message| %>
                   <div><%= message %></div>
                 <% end %>
               </div>
+
 
               <div>
                 <%= form.submit %>

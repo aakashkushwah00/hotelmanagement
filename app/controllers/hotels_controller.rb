@@ -1,11 +1,13 @@
 class HotelsController < ApplicationController
 
+  before_action :set_hotel, only: [:show, :edit, :update]
+
   def index
     @hotels = Hotel.all
   end
 
   def show 
-    @hotel = Hotel.find(params[:id])
+    # @hotel = Hotel.find(params[:id])
   end
 
   def new
@@ -22,11 +24,11 @@ class HotelsController < ApplicationController
   end
   
   def edit
-    @hotel = Hotel.find(params[:id])
+    # @hotel = Hotel.find(params[:id])
   end
 
   def update 
-    @hotel = Hotel.find(params[:id])
+    # @hotel = Hotel.find(params[:id])
     if @hotel.update(hotel_params)
       redirect_to @hotel
     else
@@ -35,13 +37,17 @@ class HotelsController < ApplicationController
   end 
 
   def destroy 
-    @hotel = Hotel.find(params[:id])
-    @hotel.destroy 
+    hotel = Hotel.find(params[:id])
+    hotel.destroy 
 
     redirect_to hotels_path, status: :see_other
   end
 
   private 
+
+  def set_hotel 
+    @hotel = Hotel.find(params[:id])
+  end
 
   def hotel_params
     params.require(:hotel).permit(:name, :email, :contact_number, :description, :address, :hotel_image )

@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  # get 'employees/index'
-  # get 'employees/show'
-  # get 'employees/new'
-  # get 'employees/edit'
-  # get 'rooms/index'
-  # get 'rooms/show'
-  # get 'rooms/new'
-  # get 'rooms/edit'
   
   get 'admin_dashboard/index'
 
@@ -23,9 +15,6 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-
   root 'home#index'
 
   get '/about', to: 'home#about'
@@ -34,8 +23,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact'
   get '/allhotels', to: 'home#allhotels'
   get 'home/hotelrooms/:hotel_id', to: 'home#hotelrooms', as: 'test'
-
-  # get 'rooms/', to: 'rooms#allroom'
 
   resources :hotels do 
     resources :rooms

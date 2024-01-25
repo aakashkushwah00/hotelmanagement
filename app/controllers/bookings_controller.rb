@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
     if room_available?(@booking.room, @booking.check_in_date, @booking.check_out_date) && @booking.save
 
-      BookingMailer.booking_success(current_user, @booking).deliver_now
+      BookingMailer.booking_success(current_user).deliver_now
 
       flash[:notice] = 'Room booked successfully!'
       redirect_to bookings_path
@@ -39,10 +39,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy 
-    @booking = Booking.find(params[:id])
-    @booking.destroy 
+    booking = Booking.find(params[:id])
+    booking.destroy 
     
-    BookingMailer.booking_cancel(current_user, @booking).deliver_now
+    BookingMailer.booking_cancel(current_user).deliver_now
 
     redirect_to root_path, notice: 'booking cancel successfully!'
   end

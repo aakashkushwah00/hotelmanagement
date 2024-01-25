@@ -7,17 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :dob, :address, :phone_number, :gender])  
-  end
-
-  # private 
-
-  def after_sign_in_path_for(resource)
-    if resource.has_role? :admin 
-      admin_dashboard_index_path
-    else
-      root_path
-    end
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :dob, :address, :phone_number, :gender])  
   end
   
 end

@@ -93,6 +93,8 @@ gem 'wkhtmltopdf-binary'
 
 gem 'dotenv-rails'
 
+gem 'byebug'
+
 
 
 

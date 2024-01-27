@@ -1,0 +1,35 @@
+<!-- app/views/products/show.html.erb -->
+<section>
+  <div class='container mt-5 pt-5' >
+    <div class='row' >
+      <div class='col-12 col-sm-8 col-md-6 m-auto'>
+        <div class='card border-0 shadow' >
+          <div class='card-body'>
+            <div class="product-container">
+              <div class="product-details">
+                <div class="product-image">
+                  <%# <img src="https://media.istockphoto.com/id/1328049157/photo/mens-short-sleeve-t-shirt-mockup-in-front-and-back-views.jpg?b=1&s=170667a&w=0&k=20&c=CZ5Emlrh-C4jzojJ8b8YBy1frxpQr6aMcLmEBrkty7Q=" alt="alternate_text"> %>
+                  <%= image_tag @room.room_image, class: 'img-fuild' %>
+
+                </div>
+              <h1><%= @room.room_type %></h1>
+
+                <div class="product-description">
+                  <%= @room.capacity %>
+                </div>
+                <div class="product-price">
+                  <%= number_to_currency(@room.price, unit: '₹') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-wrapper">
+              <a href="<%= @session.url %>" class="btn btn-primary">Pay with Stripe</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

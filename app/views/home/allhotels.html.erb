@@ -4,33 +4,28 @@
       <div class="col-md-12">
         <div class="titlepage">
           <h2>Our Hotels</h2>
-          <p>Lorem Ipsum available, but the majority have suffered </p>
+          <p>Courteous treatment will make a customer a walking advertisement.</p>
         </div>
       </div>
     </div>
 
     <div class="row">
-
       <% @hotels.each do |hotel| %> 
-      
       <div class="col-md-5 mt-5"> 
         <%= image_tag hotel.hotel_image, style: 'width: 400px; heigth:100px', class:'rounded' %>
       </div>
+
       <div class="col-md-4 mt-5">
         <h1><%= hotel.name %> Hotel</h1>
         <h5>location : <%= hotel.address %> </h5>
         <h5>email : <%= hotel.email %> </h5>
-
         <h5>contact : <%= hotel.contact_number %> </h5>
         <h6> <%= hotel.description %> </h6>
       </div>
       <div class="col-md-3 mt-5">
         <%= link_to 'Go Somewhere', test_path(hotel), class: 'btn btn-primary' %>
       </div>
-        
-      <hr>
-      <br> <br> <br> <br>
-      <hr> <hr>
+    <br> <br> <br> <br><hr> <hr>
       <% end %>
     </div>
 

@@ -19,9 +19,9 @@
             </thead>
 
             <tbody>
-              <% @bookings.each do |book| %>
+              <% @allbookings.each do |book| %>
                 <tr>
-                <td><%= book.room_id %></td>
+                  <td><%= book.room_id %></td>
                   <td><%= book.name %></td>
                   <td><%= book.email %></td>
                   <td><%= book.contact_number %></td>

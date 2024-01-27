@@ -95,6 +95,7 @@ gem 'dotenv-rails'
 
 gem 'byebug'
 
+gem 'stripe'
 
 
 

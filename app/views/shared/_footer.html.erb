@@ -14,12 +14,11 @@
         <div class="col-md-4">
           <h3>Menu Link</h3>
           <ul class="link_menu">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="about.html"> about</a></li>
-            <%# <li><a href="room.html">Our Room</a></li> %>
+            <li class="active"><%= link_to 'Home', home_index_path %></li> 
+            <li><%= link_to 'About', about_path %></li> 
             <li><%= link_to 'Rooms', rooms_path %></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><%= link_to 'blog', blog_path %></li> 
+            <li><%= link_to 'contact', contact_path %></li> 
           </ul>
         </div>
         <div class="col-md-4">
@@ -45,7 +44,7 @@
           <p>
             © 2023 - 24 All Rights Reserved. Design by codiatic technologies</a>
             <br><br>
-            Distributed by <a href="http://codiatic.com/" target="_blank">CodiaticTechnologies</a>
+            Distributed by <a href="http://codiatic.com/" target="_blank" style="color: blue;">CodiaticTechnologies</a>
           </p>
 
         </div>

@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
+  def allbooking
+    @allbookings = Booking.all
+  end
+
   def index
     @bookings = current_user.bookings
   end
@@ -30,11 +34,12 @@ class BookingsController < ApplicationController
 
       BookingMailer.booking_success(current_user).deliver_now
 
-      flash[:notice] = 'Room booked successfully!'
-      redirect_to bookings_path
+      # flash[:notice] = 'Room booked successfully!'
+      redirect_to payments_new_path(room_id: @room)
     else
       flash[:alert] = 'Room not available for the selected dates.'
-      render :new, status: 422
+      # render :new, status: 422
+      redirect_to new_booking_path
     end
   end
 

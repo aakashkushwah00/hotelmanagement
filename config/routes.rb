@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payments/index'
+  get 'payments/new'
   
   get 'admin_dashboard/index'
 
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  # get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
 
   resources :home
   resources :bookings
+
+  get 'allbookings', to: 'bookings#allbooking'
   
   get 'rooms/', to: 'rooms#allroom'
   get 'employees/', to: 'employees#allemployee'

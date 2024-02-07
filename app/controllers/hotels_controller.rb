@@ -4,6 +4,13 @@ class HotelsController < ApplicationController
 
   def index
     @hotels = Hotel.all
+
+    respond_to do |format|
+      format.html
+      # format.csv { send_data @hotels.generate_csv, filename: 'hotels- #{Date.today}.csv' }  
+      format.csv { send_data CsvExportService.new(@hotels).generate_csv, filename: 'hotels- #{Date.today}.csv' }  
+                                                                    
+    end
   end
 
   def show 
@@ -42,6 +49,17 @@ class HotelsController < ApplicationController
 
     redirect_to hotels_path, status: :see_other
   end
+
+  # CSV ( comma separated values ) import bluk data.......
+  
+  def import_csv
+    csv_file = params[:file]
+    CSV.foreach(csv_file.path, headers: true) do |row|
+      Hotel.create(row.to_h)
+    end
+    redirect_to hotels_path, notice: 'CSV imported successfully'
+  end
+
 
   private 
 

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :hotels do 
     resources :rooms
     resources :employees
+    collection do
+      post 'import_csv'
+    end
   end 
 
   resources :home

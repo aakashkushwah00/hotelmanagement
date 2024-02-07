@@ -14,6 +14,7 @@
                 <th>check_in_date</th>
                 <th>check_out_date</th>
 
+
                 <th colspan="3">Actions</th>
               </tr>
             </thead>
@@ -21,7 +22,7 @@
             <tbody>
               <% @bookings.each do |book| %>
                 <tr>
-                <td><%= book.room_id %></td>
+                  <td><%= book.room_id %></td>
                   <td><%= book.name %></td>
                   <td><%= book.email %></td>
                   <td><%= book.contact_number %></td>

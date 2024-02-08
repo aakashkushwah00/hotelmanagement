@@ -1,3 +1,4 @@
+require 'resque/server'
 Rails.application.routes.draw do
   get 'payments/index'
   get 'payments/new'
@@ -33,6 +34,11 @@ Rails.application.routes.draw do
     end
   end 
 
+authenticate :user do
+    mount Resque::Server.new, at: '/jobs'
+end
+
+
   resources :home
   resources :bookings
 
@@ -40,5 +46,6 @@ Rails.application.routes.draw do
   
   get 'rooms/', to: 'rooms#allroom'
   get 'employees/', to: 'employees#allemployee'
+
 
 end

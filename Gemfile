@@ -97,5 +97,13 @@ gem 'byebug'
 
 gem 'stripe'
 
+gem "whenever" #schedule
+
+gem 'resque' #queue process background
+
+# gem 'sidekiq'
+
+
+
 
 

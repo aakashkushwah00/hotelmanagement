@@ -4,3 +4,15 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+
+
+namespace :resque do
+    desc "Clear Resque queue"
+    task :clear do
+      require 'resque'
+      Resque.queues.each { |queue| Resque.remove_queue(queue) }
+      puts "All Resque queues cleared."
+    end
+end
+  
